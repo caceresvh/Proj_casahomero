@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>INICIO | CASA HOMERO | HOGAR</title>
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="Slider/sss.css" />
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="Slider/sss.min.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<h1>CASA HOMERO</h1>
+			<h3>Materiales Electricos S.R.L.</h3>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li><a href="catalogo.php">CATALOGO</a>
+				<li><a href="servicios.html">SERVICIOS</a></li>
+				<li><a href="contacto.html">CONTACTO</a></li>
+				<li><a href="frm_login.html">INGRESO</a></li>
+			</ul>
+		</nav>
+		<section id="principal">
+		<h1 style="color: #000; text-align: center">Solicitud de Información</h1>
+			<br>
+			<form method="post" action="send.php" accept-charset="utf-8">
+				<table>
+					<tbody>
+						<tr>
+							<td><label>Nombre : (*) </label></td>
+							<td><input type="text" name="nombre" id="nombre" size="40"
+								required></td>
+						</tr>
+						<tr>
+							<td><label>Empresa : </label></td>
+							<td><input type="text" name="empresa" id="empresa" size="30"></td>
+						</tr>
+						<tr>
+							<td><label>E-Mail : (*)</label></td>
+							<td><input type="text" name="mail" id="mail" size="50"
+								required></td>
+						</tr>
+						<tr>
+							<td><label>Consulta : (*)</label></td>
+							<td><textarea rows="20" cols="60" id="mensaje"
+									name="mensaje" required></textarea></td>
+						</tr>
+						<tr>
+							<td><input style="float: right" type="checkbox"
+								name="novedades"></td>
+							<td>¿Desea recibir información como novedades y promociones
+								en su correo electrónico?</td>
+						</tr>
+						<tr>
+							<td><label>Ingrese el codigo : (*) </label></td>
+							<td><img src="includes\captcha.php"><br>
+							<input name="captcha" type="text"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="submit" name="enviar" id="enviar"
+								value="Enviar Solicitud"></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		
+		
+		</section>
+
+		<footer>
+			&copy 2016 | Casa Homero.com | <span id=destacado>Todos los
+				derechos reservados </span>
+		</footer>
+	</div>
+	<!-- fin wrapper -->
+	<script>
+		$(document).ready(function() {
+			$(".slider").sss();
+
+		});
+	</script>
+</body>
+</html>

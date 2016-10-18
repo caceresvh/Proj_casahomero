@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>SERVICIOS | CASA HOMERO</title>
+<link href="css/style.css" rel="stylesheet">
+
+<script src="servicios.json"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<h1>CASA HOMERO</h1>
+			<h3>Materiales Electricos S.R.L.</h3>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="catalogo.php">CATALOGO</a>
+				<li><a href="servicios.html">SERVICIOS</a></li>
+				<li><a href="contacto.html">CONTACTO</a></li>
+				<li><a href="form_login.html">INGRESAR</a></li>
+			</ul>
+		</nav>
+		<section id="principal">
+			<h1>Servicios que ofrecemos</h1>
+			<p>Somos una empresa que crece y evoluciona al ritmo de las
+				exigencias de hoy, buscamos satisfacer a nuestro mercado.</p>
+				
+		<!-- tablas html. 4 filas con 2 columnas cada una-->
+		
+			<!-- table>thead+tbody>(tr>td*2)*4+tfoot PERO LA HACEMOS DINAMICA
+			PARA ESTO USAMOS JS, hay que recorrer el Json y parsearlo colocando
+			los datos presentarlo dentro de la interface, la tabla.
+			La libreria Jquery tiene un objeto que permite manejar un objeto.
+			Creo dinamicamente cada fila con su contenido.
+			
+			Levantamos el jquery
+			document es un selector
+			ready es un metodo
+			
+			dato: datos, en otra funcion anonima
+			-->
+		
+		 <table id="tblservicios">
+		    <tbody>
+		      
+		      <script>
+		      $(document).ready(function(){
+		    	 
+		    	  /* datos es todo el archivo Json */ 
+		    	  
+		    	$.getJSON("servicios.json", function(datos){
+		    		
+		    		/* construimos una variable. prestaciones es el nom del arreglo
+		    		de los datos que tengo tomo el array prestaciones*/
+		    		/* El for sabe cuantos datos tenemos en el Json
+		    		   y por cada uno crea una fila con dos columnas y vuelca los datos*/
+		    	    for (var i in datos.prestaciones){
+		    	    	
+		    	    	/* indicamos instrucciones para crear una fila con dos columas*/
+		    	    	/* En esta variable guardamos lo que queremos crear*/
+		    	    	/* Ahora hacemos que ejecute ese contenido sobre la pagina*/
+		    	    	
+		    	    	 var rowhtml="<tr><td>"+datos.prestaciones[i].nombre+"</td><td>"+datos.prestaciones[i].descripcion+"</td></tr>";
+		    	    	 
+		    	    	/* este metodo en lugar de crear, agregamos */
+		    	    	
+		    	    	$("#tblservicios").append(rowhtml);
+		    	    }
+		    	    
+		    	}); 
+		    	  
+		      });
+		    		  
+		    		  
+		      </script>
+		    
+		    </tbody>
+		 </table>
+			
+		</section>
+		<footer>
+			&copy 2016 | Casa Homero.com | <span id=destacado>Todos los
+				derechos reservados </span>
+		</footer>
+	</div>
+	<!-- fin wrapper -->
+</body>
+</html>
